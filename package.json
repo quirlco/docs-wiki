@@ -1,0 +1,56 @@
+{
+  "name": "docs-wiki",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Backlinks, search, link lint, and a local web UI over a repo's markdown. Plain files, no database, zero runtime dependencies.",
+  "keywords": [
+    "markdown",
+    "wiki",
+    "backlinks",
+    "docs",
+    "linter",
+    "agents"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quirlco/docs-wiki.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "docs-wiki": "dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./public/*": "./dist/public/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "rm -rf dist && tsc -p tsconfig.build.json && node scripts/copy-assets.mjs",
+    "prepack": "npm run build"
+  },
+  "//": "Zero runtime dependencies, deliberately. No install or postinstall scripts, ever: installing this package must never run code. The published tarball ships a prebuilt dist/.",
+  "devDependencies": {
+    "@types/node": "^22.20.1",
+    "typescript": "~5.9.3",
+    "vitest": "^4.1.11"
+  }
+}
