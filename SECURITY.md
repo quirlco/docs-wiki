@@ -25,9 +25,12 @@ should get an acknowledgement within a few days.
 Releases are cut by tagging `v*` on a commit that is already on `main`. From
 1.0.0 on, they are published from GitHub Actions with
 [npm provenance](https://docs.npmjs.com/generating-provenance-statements)
-via npm trusted publishing, behind a human-approved `npm` environment. A
-`0.0.0-reserve` placeholder (deprecated) was published manually to claim the
-package name; it carries no provenance and no code worth using.
+via npm trusted publishing, behind a human-approved `npm` environment. The
+workflow can only *stage* a release; it reaches the registry after a
+maintainer approves it on npm with two-factor authentication, and npm
+refuses token-based publishing for this package. The `0.0.0-reserve` and
+`0.0.0-stage` placeholders (deprecated) were created manually to claim the
+package name; they carry no provenance and no code.
 
 You can check a release against this repository:
 
