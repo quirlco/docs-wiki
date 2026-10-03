@@ -49,8 +49,8 @@
   },
   "//": "Zero runtime dependencies, deliberately. No install or postinstall scripts, ever: installing this package must never run code. The published tarball ships a prebuilt dist/.",
   "devDependencies": {
-    "@types/node": "^22.20.1",
-    "typescript": "~5.9.3",
-    "vitest": "^4.1.11"
+    "@types/node": "^26.6.3",
+    "typescript": "~7.0.2",
+    "vitest": "^5.0.2"
   }
 }
